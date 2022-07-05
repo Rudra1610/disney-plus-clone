@@ -72,10 +72,10 @@ const SignUp = styled.a`
   cursor: pointer;
   transition: all 250ms;
   letter-spacing:1.5px;
-  margin-top: 8px
+  margin-top: 8px;
 
   &:hover {
-    background: #0483ee;
+    background-color: black;
   }
 `;
 
