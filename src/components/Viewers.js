@@ -5,19 +5,19 @@ function Viewers() {
   return (
     <Container>
       <Wrap>
-        <img src="/images/Viewers-disney.png"></img>
+        <img src="/images/viewers-disney.png"></img>
       </Wrap>
       <Wrap>
-        <img src="/images/Viewers-pixar.png"></img>
+        <img src="/images/viewers-pixar.png"></img>
       </Wrap>
       <Wrap>
-        <img src="/images/Viewers-marvel.png"></img>
+        <img src="/images/viewers-marvel.png"></img>
       </Wrap>
       <Wrap>
-        <img src="/images/Viewers-starwars.png"></img>
+        <img src="/images/viewers-starwars.png"></img>
       </Wrap>
       <Wrap>
-        <img src="/images/Viewers-national.png"></img>
+        <img src="/images/viewers-national.png"></img>
       </Wrap>
     </Container>
   );
