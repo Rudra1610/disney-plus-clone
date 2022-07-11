@@ -4,13 +4,11 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function Detail() {
+  const api_key = process.env.REACT_APP_API_KEY;
   const baseImgURL = "https://image.tmdb.org/t/p/w500/";
-  const baseLogoURL = "https://api.themoviedb.org/3/movie/";
-  const api_key = "cbddb036583508d48b2ffac23fe1d399";
   const { id } = useParams();
   const bgURL =
     "https://api.themoviedb.org/3/movie/" + id + "?api_key=" + api_key;
-  console.log(bgURL);
   const logoURL =
     "https://api.themoviedb.org/3/movie/" + id + "/images?api_key=" + api_key;
   const [bgImgURL, setBgImgURL] = useState([]);
