@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 function Detail() {
+  const baseImgURL = "https://image.tmdb.org/t/p/w500/";
+  const baseLogoURL = "https://api.themoviedb.org/3/movie/";
+  const api_key = "cbddb036583508d48b2ffac23fe1d399";
+  const { id } = useParams();
+  const bgURL =
+    "https://api.themoviedb.org/3/movie/" + id + "?api_key=" + api_key;
+  console.log(bgURL);
+  const logoURL =
+    "https://api.themoviedb.org/3/movie/" + id + "/images?api_key=" + api_key;
+  const [bgImgURL, setBgImgURL] = useState([]);
+  const [logoImgURL, setLogoImgURL] = useState([]);
+  useEffect(() => {
+    axios.get(bgURL).then((res) => {
+      setBgImgURL(res.data);
+    });
+    axios.get(logoURL).then((res) => {
+      setLogoImgURL(res.data.logos[0]);
+    });
+  }, [id]);
   return (
     <Container>
       <Background>
-        <img src=""></img>
+        <img src={baseImgURL + bgImgURL.poster_path}></img>
       </Background>
       <ImageTitle>
-        <img src=""></img>
+        <img src={baseImgURL + logoImgURL.file_path}></img>
       </ImageTitle>
       <Controls>
         <PlayButton>
@@ -27,7 +48,7 @@ function Detail() {
         </GroupWatchButton>
       </Controls>
       <Subtitle></Subtitle>
-      <Description></Description>
+      <Description>{bgImgURL.overview}</Description>
     </Container>
   );
 }
@@ -44,10 +65,11 @@ const Background = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
   opacity: 0.8;
+  background-size: cover;
 
   img {
     width: 100%;
@@ -131,5 +153,5 @@ const Description = styled.div`
   font-size: 20px;
   margin-top: 16px;
   color: rgb(249, 249, 249);
-  max-width: 450px;
+  max-width: 900px;
 `;

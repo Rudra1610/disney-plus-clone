@@ -42,6 +42,7 @@ const Wrap = styled.div`
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.94) 0s;
   margin-left: 10px;
   margin-right: 10px;
+  cursor: pointer;
   img {
     width: 100%;
     height: 100%;
